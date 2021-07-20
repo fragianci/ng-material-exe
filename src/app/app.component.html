@@ -1,3 +1,5 @@
+<div class="mat-display-2">Angular material first Exercise</div>
+
 <!-- TYPOGRAPHY -->
 <!-- <div class="mat-display-4">Mat display 4</div>
 <div class="mat-display-3">Mat display 3</div>
@@ -19,17 +21,29 @@
     <h3>This is heading for h3</h3>
     <h4>This is heading for h4</h4>
 </div> -->
+
+<h1>Material buttons</h1>
 <div>
     <button mat-button>Hello world</button>
     <button mat-raised-button>Hello world</button>
     <button mat-flat-button>Hello world</button>
     <button mat-stroked-button>Hello world</button>
 </div>
+<br>
+
+<h1>Icons</h1>
 <div>
     <button class="mat-icon-button">Icon</button>
     <button class="mat-fab">Icon</button>
     <button class="mat-mini-fab">Icon</button>
 </div>
+<div>
+    <!-- Go to https://material.io/tools/icons -->
+    <mat-icon color = 'primary'>home</mat-icon>
+</div>
+<br>
+
+<h1>Buttons with colors</h1>
 <div>
     <button color="primary" mat-button>Primary</button>
     <button color="accent" disableRipple mat-button>Accent</button>
@@ -38,3 +52,22 @@
     <button color="accent" mat-raised-button>Accent</button>
     <button color="warn" mat-raised-button>Warn</button>
 </div>
+<br>
+
+<h1>Toggle Button</h1>
+<div>
+    <mat-button-toggle #toggleBtn>Toggle</mat-button-toggle>
+    {{toggleBtn.checked}}
+</div>
+<br>
+
+<h2>Toggle Button example</h2>
+<div>
+    <mat-button-toggle-group #toggleGroup = 'matButtonToggleGroup' multiple>
+        <mat-button-toggle value = "angular">Angular</mat-button-toggle>
+        <mat-button-toggle value = "react">React</mat-button-toggle>
+        <mat-button-toggle value = "vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+    {{toggleGroup.value}}
+</div>
+
