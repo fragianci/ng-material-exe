@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-material-exe';
+  nots = 3;
+  showSpinner = false;
+  opened = false;
+
+  loadData(){
+    this.showSpinner = true;
+    setTimeout(()=>{
+      this.showSpinner = false;
+    }, 2000)
+  }
+
+  log(state){
+    console.log(state);
+  }
 }
