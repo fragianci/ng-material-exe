@@ -9,10 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
-
-
-
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 const matComponents = [
@@ -25,7 +22,8 @@ const matComponents = [
   MatProgressSpinnerModule,
   MatMenuModule,
   MatListModule,
-  MatDividerModule
+  MatDividerModule,
+  MatGridListModule
 ]
 
 @NgModule({
