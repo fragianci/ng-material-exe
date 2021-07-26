@@ -212,14 +212,69 @@
     <br>
 
     <h1>Grid list</h1>
-    <mat-grid-list cols="2" rowHeight="3:1">
+    <mat-grid-list cols="2" rowHeight="fit" style="height: 500px"
+    gutterSize="5px">
         <mat-grid-tile rowspan="2">Tile 1</mat-grid-tile>
         <mat-grid-tile colspan="2">Tile 2</mat-grid-tile>
         <mat-grid-tile>Tile 3</mat-grid-tile>
         <mat-grid-tile>Tile 4</mat-grid-tile>
     </mat-grid-list>
+    <br>
 
+    <h1>Expansion panel</h1>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Title example
+                </mat-panel-title>
+                <mat-panel-description>
+                    Descriptions and stuff
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>Panel content</p>
+            <mat-action-row>
+                <button mat-button>Enroll</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Title example n2
+                </mat-panel-title>
+                <mat-panel-description>
+                    Some creative stuff to hide how boring i am
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>Panel content</p>
+            <mat-action-row>
+                <button mat-button>Enroll</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <br><br>
 
+    <h1>Card</h1>
+    <mat-card>
+        <mat-card-title>
+            Card title
+        </mat-card-title>
+        <mat-card-content>
+            This is the card content
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-flat-button>Login</button>
+        </mat-card-actions>
+    </mat-card>
+    <br><br>
+
+    <h1>Tabs</h1>
+    <mat-tab-group #tabRef>
+        <mat-tab label="Angular">Angular content</mat-tab>
+        <mat-tab label="React">React content</mat-tab>
+        <mat-tab label="Vue">Vue content</mat-tab>
+    </mat-tab-group>
+    {{tabRef.selectedIndex}}
 
 
 </div>
