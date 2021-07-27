@@ -10,6 +10,8 @@ export class AppComponent {
   nots = 3;
   showSpinner = false;
   opened = false;
+  selectedValue="";
+  options = ['Angular', 'React', 'Vue'];
 
   loadData(){
     this.showSpinner = true;

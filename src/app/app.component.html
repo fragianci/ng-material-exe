@@ -275,6 +275,86 @@
         <mat-tab label="Vue">Vue content</mat-tab>
     </mat-tab-group>
     {{tabRef.selectedIndex}}
+    <br><br>
 
+    <h1>Stepper</h1>
+    <mat-vertical-stepper linear>
+        <mat-step label="Shipping Address" completed="true">Shipping Address</mat-step>
+        <mat-step label="Billing Address" completed="false" optional>Billing Address
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step label="Place Order" completed="false">Order</mat-step>
+    </mat-vertical-stepper>
+    <br><br>
+
+    <h1>Input</h1>
+    <mat-form-field 
+    floatLabel="never" 
+    hideRequiredMarker 
+    appearance="legacy"
+    color="warn">
+        <mat-label>Name</mat-label>
+        <input matInput required>
+        <mat-hint align="end">Min 5 characters</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field 
+    floatLabel="never" 
+    hideRequiredMarker 
+    appearance="standard">
+        <mat-label>Name</mat-label>
+        <input matInput required>
+        <mat-hint align="end">Min 5 characters</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field 
+    floatLabel="never" 
+    hideRequiredMarker 
+    appearance="fill"
+    color="warn">
+        <mat-label>Name</mat-label>
+        <input matInput required>
+        <mat-hint align="end">Min 5 characters</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field floatLabel="never" hideRequiredMarker appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput required>
+        <mat-hint align="end">Min 5 characters</mat-hint>
+    </mat-form-field>
+    <br><br>
+
+    <h1>Select</h1>
+    <mat-form-field>
+        <mat-label>Topic</mat-label>
+        <mat-select [(value)]="selectedValue" multiple>
+            <mat-optgroup label="Web">
+                <mat-option value="Angular">Angular</mat-option>
+                <mat-option value="React">React</mat-option>
+                <mat-option value="Vue">Vue</mat-option>
+            </mat-optgroup>
+            <mat-optgroup label="Mobile">
+                <mat-option value="Ionic">Ionic</mat-option>
+                <mat-option value="React native">React native</mat-option>
+            </mat-optgroup>
+        </mat-select>
+    </mat-form-field>
+    {{selectedValue}}
+    <br><br>
+
+    <h1>AutoComplete</h1>
+    <form action="">
+        <mat-form-field>
+            <input type="text" matInput [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of options" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
 
 </div>
