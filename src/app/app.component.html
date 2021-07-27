@@ -1,8 +1,7 @@
 <div style="padding: 25px;">
     <div class="mat-display-2">Angular material first Exercise</div>
 
-    <!-- TYPOGRAPHY -->
-    <!-- <div class="mat-display-4">Mat display 4</div>
+    <div class="mat-display-4">Typography: Mat display 4</div>
     <div class="mat-display-3">Mat display 3</div>
     <div class="mat-display-2">Mat display 2</div>
     <div class="mat-display-1">Mat display 1</div>
@@ -127,7 +126,7 @@
 
     <h1>Sidenav</h1>
     <mat-sidenav-container style="height: 100%;">
-        <!-- mode is on default over, otherwise can be push or side -->
+        mode is on default over, otherwise can be push or side 
         <mat-sidenav 
         mode="side" 
         #sidenav 
@@ -346,15 +345,69 @@
     <br><br>
 
     <h1>AutoComplete</h1>
-    <form action="">
-        <mat-form-field>
-            <input type="text" matInput [matAutocomplete]="auto">
+    <form>
+        <mat-form-field appearance="fill">
+            <input 
+            type="text" 
+            matInput
+            placeholder="Pick one"
+            [matAutocomplete]="auto" 
+            [formControl]="myControl">
             <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of options" [value]="option">
+                <mat-option *ngFor="let option of filteredOptions | async"
+                [value]="option">
                     {{option}}
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
     </form>
+    <br><br>
+
+    <h1>Checkboxes</h1>
+    <mat-checkbox>
+        Subscribe
+    </mat-checkbox>
+    <br>
+    <mat-checkbox labelPosition="before">
+        Subscribe
+    </mat-checkbox>
+    <br><br>
+
+    <h1>Radio buttons</h1>
+    <mat-radio-button value="Angular" color="primary">Angular</mat-radio-button>
+    <mat-radio-button value="React" color="primary">React</mat-radio-button>
+    <mat-radio-button value="Vue" color="primary">Vue</mat-radio-button>
+    <br><br>
+     
+    <h1>Date picker</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input
+            matInput
+            [matDatepicker]="picker"
+            [matDatepickerFilter]="dayFilter">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    <br><br>
+
+    <h1>Tooltip</h1>
+    <button
+    mat-raised-button 
+    matTooltip="Welcome to Codevolution"
+    matTooltipShowDelay="600"
+    matTooltipHideDelay="600">
+        Hello
+    </button>
+    <br><br>
+
+    <h1>Snachbar</h1>
+    <button mat-button (click)="openSnackbar('Item deleted', 'Dismiss')">
+        Delete
+    </button>
+    <button mat-button (click)="openCustomSnackBar()">
+        Show custom Snackbar
+    </button>
+          
 
 </div>
