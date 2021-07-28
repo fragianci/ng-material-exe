@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators'
 import { CustomSnackbarComponent } from './custom-snackbar/custom-snackbar.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,10 @@ export class AppComponent implements OnInit{
   minDate=new Date();
   maxDate=new Date(2021, 7, 31);
 
-  constructor(private snackbar: MatSnackBar) { }
+  constructor(
+    private snackbar: MatSnackBar,
+    private dialog: MatDialog
+    ) { }
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
@@ -71,5 +76,13 @@ export class AppComponent implements OnInit{
 
   openCustomSnackBar(){
     this.snackbar.openFromComponent(CustomSnackbarComponent, {duration: 2000});
+  }
+
+  openDialog(){
+    let dialogRef = this.dialog.open(
+      DialogExampleComponent, {data: {name: "Francesco"}});
+    dialogRef.afterClosed().subscribe(result=>{
+      console.log(result)
+    })
   }
 }
