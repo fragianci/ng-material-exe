@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
@@ -6,6 +6,7 @@ import { map, startWith } from 'rxjs/operators'
 import { CustomSnackbarComponent } from './custom-snackbar/custom-snackbar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
@@ -44,7 +45,8 @@ export class AppComponent implements OnInit{
   ];
   
     displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-    dataSource = this.ELEMENT_DATA;
+    dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+
   
 
   constructor(
@@ -107,6 +109,10 @@ export class AppComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result=>{
       console.log(result)
     })
+  }
+
+  applyFilter(filterValue: string){
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 
